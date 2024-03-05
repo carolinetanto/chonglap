@@ -26,8 +26,39 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.content-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 500%;
+  height: 500%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 82, 158, 1),
+    rgba(0, 181, 238, 0.3),
+    rgba(27, 0, 36, 0.7),
+    rgba(98, 5, 160, 0.2),
+    rgba(166, 21, 134, 0.8)
+  );
+  filter: blur(100px);
+  transform: rotate(45deg);
+  animation: meshAnimation 12s linear infinite;
+  z-index: -1;
+}
+
+@keyframes meshAnimation {
+  0% {
+    transform: rotate(45deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(45deg) translate(50%, 50%);
   }
 }
