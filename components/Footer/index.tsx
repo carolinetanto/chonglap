@@ -10,7 +10,7 @@ export const Footer = () => {
             Facebook
           </Link>
         </div>
-        <small>Chong Lap &copy; {new Date().getFullYear()}</small>
+        <small>&copy; {new Date().getFullYear()} All Rights Reserved by Chong Lap | 創立香港有限公司 Terms & Conditions</small>
       </div>
     </footer>
   );

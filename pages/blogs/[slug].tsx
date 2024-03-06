@@ -35,7 +35,7 @@ export default function BlogDetails({ blog }: { blog: any }) {
         <div className="z-20 text-center">
           <h1 className="text-2xl md:text-4xl mb-4">{blog.title}</h1>
           <p className="italic">{blog.blogField.category.nodes[0].name}</p>
-          <p className="italic">Source: {blog.blogField.author}</p> /* no author! */
+          <p className="italic">Source: {blog.blogField.author}</p> 
         </div>
       </div>
       <Gallery images={galleryImages} onClick={handleImageClick} />
