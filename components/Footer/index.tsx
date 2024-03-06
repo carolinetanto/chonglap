@@ -7,10 +7,7 @@ export const Footer = () => {
         <h3 className="text-xl">Important Links</h3>
         <div className="flex items-center justify-center my-4 underline">
           <Link href="https://twitter.com/chonglap" className="px-4">
-            Twitter
-          </Link>
-          <Link href="https://linkedin.com/in/chonglap" className="px-4">
-            LinkedIn
+            Facebook
           </Link>
         </div>
         <small>Chong Lap &copy; {new Date().getFullYear()}</small>
