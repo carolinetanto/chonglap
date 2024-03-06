@@ -270,7 +270,8 @@ export async function getPostBySlug(slug: string) {
                 name
               }
             }
-            date
+            dateStart
+            dateEnd
             description
           }
         }

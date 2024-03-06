@@ -35,7 +35,7 @@ export default function EventDetails({ event }: { event: any }) {
         <div className="z-20 text-center">
           <h1 className="text-2xl md:text-4xl mb-4">{event.title}</h1>
           <p className="italic">{event.eventField.category.nodes[0].name}</p>
-          <p className="italic">{event.eventField.date}</p>
+          <p className="italic">{event.eventField.startDate} - {event.eventField.endDate}</p>
         </div>
       </div>
       <Gallery images={galleryImages} onClick={handleImageClick} />
