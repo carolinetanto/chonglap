@@ -233,7 +233,10 @@ export async function getPostBySlug(slug: string) {
                 name
               }
             }
-            author
+            source {
+              url
+              title
+            }
             content
           }
         }
