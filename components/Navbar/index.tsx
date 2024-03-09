@@ -15,17 +15,17 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a href="/" className="text-white">Chong Lap</a>
+                <Link href="/" className="text-white">Chong Lap</Link>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
-                <a href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Company</a>
-                <a href="/products" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Products</a>
-                <a href="/blogs" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Blogs</a>
-                <a href="/events" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Events</a>
-                <a href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Contact</a>
-                <a href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</a>
+                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Company</Link>
+                <Link href="/products" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Products</Link>
+                <Link href="/blogs" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Blogs</Link>
+                <Link href="/events" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Events</Link>
+                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
+                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
               </div>
             </div>
             <div className="md:hidden flex items-center">
