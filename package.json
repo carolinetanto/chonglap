@@ -17,7 +17,10 @@
     "@mui/material": "^5.15.12",
     "next": "14.1.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.71.1",
+    "swiper": "^11.0.7",
+    "swiper.js": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

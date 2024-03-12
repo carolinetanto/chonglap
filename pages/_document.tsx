@@ -7,18 +7,10 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        {/* <Navbar /> */}
         <div className="content-wrapper">
-          <div className="blob" />
-          <div className="blob" />
-          <div className="blob" />
-          <div className="blob" />
-          <div className="blob" />
-          <div className="blob" />
           <Main />
         </div>
         <NextScript />
-        {/* <Footer /> */}
       </body>
     </Html>
   );

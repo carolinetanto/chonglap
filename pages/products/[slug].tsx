@@ -7,23 +7,25 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Slider from "@/components/Slider";
 
 export default function ProductDetails({ product }: { product: any }) {
-  const imageCount = product.productField.gallery.nodes.length;
-  const [headerImage, setHeaderImage] = useState(
-    product.productField.thumbnail.node.sourceUrl
-  );
-  const handleImageClick = (image: any) => {
-    setHeaderImage(image.sourceUrl);
-  };
-  const galleryImages = [
-    product.productField.thumbnail.node, // Include product thumbnail in the gallery
-    ...product.productField.gallery.nodes,
-  ];
+  // const imageCount = product.productField.gallery.nodes.length;
+  // const [headerImage, setHeaderImage] = useState(
+  //   product.productField.thumbnail.node.sourceUrl
+  // );
+  // const handleImageClick = (image: any) => {
+  //   setHeaderImage(image.sourceUrl);
+  // };
+  // const galleryImages = [
+  //   product.productField.thumbnail.node, // Include product thumbnail in the gallery
+  //   ...product.productField.gallery.nodes,
+  // ];
 
   return (
     <section className="container mx-auto py-12">
-      <div
+      <Slider/>
+      {/* <div
         className="product-header relative flex flex-col items-center justify-center w-full min-h-[200px] rounded-md"
         style={{
           backgroundImage: `url(${headerImage})`,
@@ -40,7 +42,11 @@ export default function ProductDetails({ product }: { product: any }) {
           <p className="italic">{product.productField.category.nodes[0].name}</p>
         </div>
       </div>
-      <Gallery images={galleryImages} onClick={handleImageClick} />
+      <Gallery images={galleryImages} onClick={handleImageClick} /> */}
+      <div className="product-overview w-full md:w-3/5 mx-auto mt-20 py-6 text-lg">
+        <h1 className="text-2xl md:text-4xl mb-4">{product.title}</h1>
+        <p className="italic">{product.productField.category.nodes[0].name}</p>
+      </div>
       <div
         className="product-content w-full md:w-3/5 mx-auto mt-20 py-6 text-lg"
         dangerouslySetInnerHTML={{ __html: product.productField.description }}
@@ -58,7 +64,7 @@ export default function ProductDetails({ product }: { product: any }) {
             <AccordionDetails>
               {product.productField.store.hongKongIsland.map((store: any, index: any) => (
                 <div key={`hki-${index}`}>
-                  <h5>{store.name}</h5>
+                  <h4>{store.name}</h4>
                   <p>{store.address}</p>
                 </div>
               ))}
@@ -77,7 +83,7 @@ export default function ProductDetails({ product }: { product: any }) {
             <AccordionDetails>
               {product.productField.store.kowloon.map((store: any, index: any) => (
                 <div key={`hki-${index}`}>
-                  <h5>{store.name}</h5>
+                  <h4>{store.name}</h4>
                   <p>{store.address}</p>
                 </div>
               ))}
@@ -96,7 +102,7 @@ export default function ProductDetails({ product }: { product: any }) {
             <AccordionDetails>
               {product.productField.store.newTerritories.map((store: any, index: any) => (
                 <div key={`hki-${index}`}>
-                  <h5>{store.name}</h5>
+                  <h4>{store.name}</h4>
                   <p>{store.address}</p>
                 </div>
               ))}
