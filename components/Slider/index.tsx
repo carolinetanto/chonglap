@@ -1,5 +1,4 @@
 import React, { ReactNode }from 'react'
-
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Options } from '@splidejs/splide';
 
