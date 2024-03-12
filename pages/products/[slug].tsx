@@ -1,48 +1,21 @@
 import { GetStaticProps } from "next";
 import { GetStaticPaths } from "next";
-import { useState } from "react";
-import Gallery  from "@/components/Gallery";
 import { getProducts, getProductBySlug } from "@/lib/service";
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Slider from "@/components/Slider";
+import { Slider } from "@/components/Slider";
 
 export default function ProductDetails({ product }: { product: any }) {
-  // const imageCount = product.productField.gallery.nodes.length;
-  // const [headerImage, setHeaderImage] = useState(
-  //   product.productField.thumbnail.node.sourceUrl
-  // );
-  // const handleImageClick = (image: any) => {
-  //   setHeaderImage(image.sourceUrl);
-  // };
-  // const galleryImages = [
-  //   product.productField.thumbnail.node, // Include product thumbnail in the gallery
-  //   ...product.productField.gallery.nodes,
-  // ];
+  const { thumbnail, gallery } = product.productField;
+  const galleryImages = [thumbnail.node, ...gallery.nodes];
 
   return (
     <section className="container mx-auto py-12">
-      <Slider/>
-      {/* <div
-        className="product-header relative flex flex-col items-center justify-center w-full min-h-[200px] rounded-md"
-        style={{
-          backgroundImage: `url(${headerImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div
-          className="absolute w-full h-full z-10"
-          style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
-        ></div>
-        <div className="z-20 text-center">
-          <h1 className="text-2xl md:text-4xl mb-4">{product.title}</h1>
-          <p className="italic">{product.productField.category.nodes[0].name}</p>
-        </div>
+      <div className="product-header w-full md:w-3/5 mx-auto text-lg">
+        <Slider images={galleryImages}/>
       </div>
-      <Gallery images={galleryImages} onClick={handleImageClick} /> */}
       <div className="product-overview w-full md:w-3/5 mx-auto mt-20 py-6 text-lg">
         <h1 className="text-2xl md:text-4xl mb-4">{product.title}</h1>
         <p className="italic">{product.productField.category.nodes[0].name}</p>

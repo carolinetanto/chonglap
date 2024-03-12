@@ -1,18 +1,36 @@
 import { GetStaticProps } from "next";
 import { PostBlock } from "@/components/PostBlock";
 import { Block } from "@/components/Block";
-
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { getPosts, getProducts, getBlogs, getEvents } from "@/lib/service";
 
-export default function HomePage({ posts }: { posts: any }) {
+import '@splidejs/react-splide/css';
+import '@splidejs/react-splide/css/skyblue';
+import '@splidejs/react-splide/css/sea-green';
+import '@splidejs/react-splide/css/core';
+
+export default function HomePage({ latestProduct, latestBlog, latestEvent }: { latestProduct: any, latestBlog: any, latestEvent: any }) {
   return (
     <>
-      <div className="container mx-auto py-8">
-        <h3 className="text-xl">All my posts ({posts.length})</h3>
+      <div className="container mx-auto py-8 px-8">
+        <div className="page-header relative flex flex-col items-center justify-center w-full min-h-[200px] rounded-md"
+          style={{
+            backgroundImage: `url("https://images.theconversation.com/files/369567/original/file-20201116-23-18wlnv.jpg?ixlib=rb-1.1.0&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+        }}>
+          <div
+            className="absolute w-full h-full z-10"
+            style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
+          ></div>
+          <div className="z-20 text-center max-w-[500px]">
+            <h1 className="text-5xl">Your Healthcare and Pharmaceutical Distribution Partner</h1>
+          </div>
+        </div>
         <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {posts.map((post: any) => {
-            return <PostBlock key={post.slug} post={post} />;
-          })}
+          <Block item={latestProduct} key={latestProduct.slug} type="products" />
+          <Block item={latestBlog} key={latestBlog.slug} type="blogs" />
+          <Block item={latestEvent} key={latestEvent.slug} type="events" />
         </div>
       </div>
     </>
@@ -20,11 +38,15 @@ export default function HomePage({ posts }: { posts: any }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPosts(100); // retrieve first 100 posts
+  const products = await getProducts(1);
+  const blogs = await getBlogs(1);
+  const events = await getEvents(1);
 
   return {
     props: {
-      posts,
+      latestProduct: products[0],
+      latestBlog: blogs[0] || null, 
+      latestEvent: events[0],
     },
     revalidate: 3600,
   };
