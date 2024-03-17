@@ -16,31 +16,26 @@ export const Block = ({ item, type }: { item: any; type: string }) => {
   }
 
   return (
-    <div className={`${type}-block p-2 rounded-md`}>
-      <Link href={`/${type}/${item.slug}`}>
-        <div className="relative h-80 transition-all duration-200 ease-linear hover:-translate-y-[3px]">
+    <Link href={`/${type}/${item.slug}`} className={`${type}-block rounded-md transition-all duration-200 ease-linear hover:-translate-y-[3px]`}>
+      <div>
+        <div className="relative h-60">
           <Image
             src={thumbnail ?? defaultImage}
             fill
             alt={item.title}
-            className="absolute rounded-md h-full w-full object-cover"
+            className="absolute rounded-t-md h-full w-full object-cover"
           />
         </div>
-      </Link>
-      <Link href={`/${type}/${item.slug}`} className="post-content my-4">
-        <h3 className="text-2xl py-4">{item.title}</h3>
-        <div
-          className="italic"
-          dangerouslySetInnerHTML={{
-            __html:
+      </div>
+      <div className="post-content p-4 bg-black rounded-b-md">
+        <h3 className="text-2xl">{item.title}</h3>
+        <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[150px] text-center">{
               type === "products"
                 ? item.productField.category.nodes[0].name
                 : type === "events"
                 ? item.eventField.category.nodes[0].name
-                : item.blogField.category.nodes[0].name,
-          }}
-        ></div>
-      </Link>
-    </div>
+                : item.blogField.category.nodes[0].name}</p>
+      </div>
+    </Link>
   );
 };

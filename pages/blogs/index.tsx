@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
-import { Block } from "@/components/Block";
+import { PostBlock } from "@/components/PostBlock";
 import { getBlogs } from "@/lib/service";
 
 export default function Blogs({ blogs }: { blogs: any }) {
@@ -58,9 +58,9 @@ export default function Blogs({ blogs }: { blogs: any }) {
           </div>
         </div>
 
-        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="my-6 grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredBlogs.map((blog: any) => {
-            return <Block item={blog} key={blog.slug} type="blogs" />;
+            return <PostBlock item={blog} key={blog.slug} type="blogs" />;
           })}
         </div>
       </div>

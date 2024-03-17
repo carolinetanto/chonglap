@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import { PostBlock } from "@/components/PostBlock";
 import { Block } from "@/components/Block";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { getPosts, getProducts, getBlogs, getEvents } from "@/lib/service";
@@ -20,18 +19,22 @@ export default function HomePage({ latestProduct, latestBlog, latestEvent }: { l
             backgroundPosition: "center",
         }}>
           <div
-            className="absolute w-full h-full z-10"
+            className="absolute w-full h-full z-10 rounded-md"
             style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
           ></div>
           <div className="z-20 text-center max-w-[500px]">
-            <h1 className="text-5xl">Your Healthcare and Pharmaceutical Distribution Partner</h1>
+            <h1 className="text-xl md:text-4xl lg:text-5xl">Your Healthcare and Pharmaceutical Distribution Partner</h1>
           </div>
         </div>
-        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          <Block item={latestProduct} key={latestProduct.slug} type="products" />
-          <Block item={latestBlog} key={latestBlog.slug} type="blogs" />
-          <Block item={latestEvent} key={latestEvent.slug} type="events" />
-        </div>
+        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-row-2 gap-8">
+            <Block item={latestProduct} key={latestProduct.slug} type="products" />
+            <Block item={latestBlog} key={latestBlog.slug} type="blogs" />
+          </div>
+          <div className="grid lg:col-span-2">
+            <Block item={latestEvent} key={latestEvent.slug} type="events" />
+          </div>
+        </div>
       </div>
     </>
   );

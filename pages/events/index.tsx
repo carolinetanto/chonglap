@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
-import { Block } from "@/components/Block";
+import { PostBlock } from "@/components/PostBlock";
 import { getEvents } from "@/lib/service";
 
 export default function Events({ events }: { events: any }) {
@@ -57,9 +57,9 @@ export default function Events({ events }: { events: any }) {
           </div>
         </div>
 
-        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="my-6 grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredEvents.map((event: any) => {
-            return <Block item={event} key={event.slug} type="events" />;
+            return <PostBlock item={event} key={event.slug} type="events" />;
           })}
         </div>
       </div>

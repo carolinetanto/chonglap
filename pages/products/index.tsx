@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
-import { Block } from "@/components/Block";
+import { PostBlock } from "@/components/PostBlock";
 import { getProducts } from "@/lib/service";
 
 export default function Products({ products }: { products: any }) {
@@ -58,9 +58,9 @@ export default function Products({ products }: { products: any }) {
           </div>
         </div>
         
-        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="my-6 grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProducts.map((product: any) => (
-            <Block item={product} key={product.slug} type="products" />
+            <PostBlock item={product} key={product.slug} type="products" />
           ))}
         </div>
       </div>

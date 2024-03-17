@@ -3,26 +3,45 @@ import Image from "next/image";
 
 import defaultImage from "@/assets/images/default.jpg";
 
-export const PostBlock = ({ post }: { post: any }) => {
+export const PostBlock = ({ item, type }: { item: any; type: string }) => {
+  let thumbnail;
+
+  // Check the post type and retrieve the appropriate thumbnail
+  if (type === "products") {
+    thumbnail = item.productField.thumbnail?.node.sourceUrl;
+  } else if (type === "events") {
+    thumbnail = item.eventField.thumbnail?.node.sourceUrl;
+  } else if (type === "blogs") {
+    thumbnail = item.blogField.thumbnail?.node.sourceUrl;
+  }
+
   return (
-    <div className="post-block p-2 rounded-md">
-      <Link href={`/posts/${post.slug}`}>
-        <div className="relative h-80 transition-all duration-200 ease-linear hover:-translate-y-[3px]">
-          <Image
-            src={post.featuredImage.node.sourceUrl ?? defaultImage}
-            fill
-            alt={post.title}
-            className="absolute rounded-md h-full w-full object-cover"
-          />
+    <Link href={`/${type}/${item.slug}`} className={`${type}-block transition-all duration-200 ease-linear hover:-translate-y-[3px]`}>
+      <div className="lg:flex">
+        <div className="lg:flex-shrink-0">
+          <div className="relative h-60 lg:w-80">
+            <Image
+              src={thumbnail ?? defaultImage}
+              fill
+              alt={item.title}
+              className="absolute h-full w-full object-cover rounded-t-md lg:rounded-l-md"
+            />
+          </div>
         </div>
-      </Link>
-      <Link href={`/posts/${post.slug}`} className="post-content my-4">
-        <h3 className="text-2xl py-4">{post.title}</h3>
-        <div
-          className="italic"
-          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-        ></div>
-      </Link>
-    </div>
+        <div className="lg:flex lg:flex-grow">
+          <div className="post-content p-4 bg-black lg:flex lg:flex-grow rounded-b-md lg:rounded-r-md">
+            <div className="">
+              <h3 className="text-2xl">{item.title}</h3>
+              <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[150px] text-center">{
+                    type === "products"
+                      ? item.productField.category.nodes[0].name
+                      : type === "events"
+                      ? item.eventField.category.nodes[0].name
+                      : item.blogField.category.nodes[0].name}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 };
