@@ -29,12 +29,7 @@ export const Block = ({ item, type }: { item: any; type: string }) => {
       </div>
       <div className="post-content p-4 bg-black rounded-b-md">
         <h3 className="text-2xl">{item.title}</h3>
-        <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[150px] text-center">{
-              type === "products"
-                ? item.productField.category.nodes[0].name
-                : type === "events"
-                ? item.eventField.category.nodes[0].name
-                : item.blogField.category.nodes[0].name}</p>
+        <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[150px] text-center">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       </div>
     </Link>
   );

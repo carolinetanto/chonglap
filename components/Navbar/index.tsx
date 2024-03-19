@@ -22,12 +22,13 @@ export const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
-                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Company</Link>
+                <Link href="/company" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Company</Link>
                 <Link href="/products" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Products</Link>
                 <Link href="/blogs" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Blogs</Link>
                 <Link href="/events" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Events</Link>
-                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
-                <Link href="" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
+                <Link href="/contact" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
+                <Link href="/taiwan-branch" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
+                {/* <SearchBar/> */}
               </div>
             </div>
             <div className="md:hidden flex items-center" >
@@ -54,6 +55,7 @@ export const Navbar = () => {
               <Link href="/events" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Events</Link>
               <Link href="" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
               <Link href="" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
+              {/* <SearchBar/> */}
             </div>
           </div>
         )}
