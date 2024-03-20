@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-import logo from "@/assets/images/CHONG-LAP-LOGO_2023_chonglapcom.svg"
+import logo from "@/assets/images/CHONG-LAP-LOGO_2023_REVISED.svg"
 
 export const Navbar = () => {
   const [isClick, setisClick] = useState(false);
