@@ -126,6 +126,7 @@ export async function getEvents(first = 10) {
   
   return data?.events?.nodes;
 }
+
 export async function getMembers(first = 10) {
   const data = await fetchAPI(
     `query FetchMembers($first: Int = 10) {

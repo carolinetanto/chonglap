@@ -32,7 +32,7 @@ export const PostBlock = ({ item, type }: { item: any; type: string }) => {
           <div className="post-content p-4 bg-black lg:flex lg:flex-grow rounded-b-md lg:rounded-r-md">
             <div className="">
               <h3 className="text-2xl">{item.title}</h3>
-              <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[150px] text-center">{
+              <p className="rounded-full border-2 mt-3 p-1 px-4 border-white max-w-[300px] text-center">{
                     type === "products"
                       ? item.productField.category.nodes[0].name
                       : type === "events"

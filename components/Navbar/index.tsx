@@ -17,7 +17,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/" className="text-white"><Image alt="chonglap-logo" src={logo} width={50} height={130}/></Link>
+                <Link href="/" className="text-white text-lg"><Image alt="chonglap-logo" src={logo} width={50} height={130}/></Link>
               </div>
             </div>
             <div className="hidden md:block">
