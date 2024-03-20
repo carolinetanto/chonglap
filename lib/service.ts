@@ -126,6 +126,40 @@ export async function getEvents(first = 10) {
   
   return data?.events?.nodes;
 }
+export async function getMembers(first = 10) {
+  const data = await fetchAPI(
+    `query FetchMembers($first: Int = 10) {
+      members(first: $first) {
+        nodes {
+          title
+          memberField {
+            profilePicture {
+              node {
+                sourceUrl
+              }
+            }
+            category {
+              nodes {
+                name
+              }
+            }
+            position
+            social {
+              url
+            }
+          }
+        }
+      }
+    }`,
+    {
+      variables: {
+        first,
+      },
+    }
+  );
+  
+  return data?.members?.nodes;
+}
 
 export async function getPostBySlug(slug: string) {
     const data = await fetchAPI(
