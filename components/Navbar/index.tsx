@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-import logo from "@/assets/images/Chong-Lap-logo-only.jpg"
+import logo from "@/assets/images/CHONG-LAP-LOGO_2023_chonglapcom.svg"
 
 export const Navbar = () => {
   const [isClick, setisClick] = useState(false);
@@ -17,7 +17,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/" className="text-white text-lg"><Image alt="chonglap-logo" src={logo} width={50} height={130}/></Link>
+                <Link href="/" className="text-white text-lg"><Image alt="chonglap-logo" src={logo} width={200} height={300}/></Link>
               </div>
             </div>
             <div className="hidden md:block">
