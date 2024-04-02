@@ -29,7 +29,7 @@ export const Block = ({ item, type }: { item: any; type: string }) => {
       </div>
       <div className="post-content p-4 bg-black rounded-b-lg">
         <h3 className="text-2xl">{item.title}</h3>
-        <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[350px] text-center">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
+        <p className="rounded-full border-2 mt-3 p-1 border-white max-w-[100px] text-center">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       </div>
     </Link>
   );
