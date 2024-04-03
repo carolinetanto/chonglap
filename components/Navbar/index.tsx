@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import Search from "@/components/Search"
 import { useState } from "react";
 
 import logo from "@/assets/images/CHONG-LAP-LOGO_2023_REVISED.svg"
@@ -17,7 +18,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/" className="text-white text-lg"><Image alt="chonglap-logo" src={logo} width={200} height={300}/></Link>
+                <Link href="/" className="text-white text-lg"><Image alt="chonglap-logo" src={logo} width={180} height={300}/></Link>
               </div>
             </div>
             <div className="hidden md:block">
@@ -28,7 +29,7 @@ export const Navbar = () => {
                 <Link href="/events" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Events</Link>
                 <Link href="/contact" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
                 <Link href="/taiwan-branch" className="text-white hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
-                {/* <SearchBar/> */}
+                <Search></Search>
               </div>
             </div>
             <div className="md:hidden flex items-center" >
@@ -49,13 +50,13 @@ export const Navbar = () => {
         {isClick && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Search></Search>
               <Link href="" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Company</Link>
               <Link href="/products" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Products</Link>
               <Link href="/blogs" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Blogs</Link>
               <Link href="/events" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Events</Link>
               <Link href="" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Contact</Link>
               <Link href="" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">Taiwan branch</Link>
-              {/* <SearchBar/> */}
             </div>
           </div>
         )}
